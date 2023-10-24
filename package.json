@@ -1,0 +1,21 @@
+{
+  "name": "gradebook",
+  "private": true,
+  "dependencies": {
+    "@hotwired/stimulus": "^3.2.1",
+    "@rails/actioncable": "^7.0.4-3",
+    "@rails/activestorage": "^7.0.4-3",
+    "@rails/ujs": "^7.0.4-3",
+    "esbuild": "^0.17.14",
+    "jquery": "^3.4.1",
+    "turbolinks": "^5.2.0"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "webpack-dev-server": "^3.10.3"
+  },
+  "scripts": {
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds",
+    "build:css": "sass ./app/assets/stylesheets/application.bootstrap.scss ./app/assets/builds/application.css --no-source-map --load-path=node_modules"
+  }
+}

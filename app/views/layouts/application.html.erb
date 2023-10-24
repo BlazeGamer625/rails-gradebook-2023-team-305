@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gradebook</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <strong>Navigation: </strong>
+    <div class="nav-link">
+      <% if user_signed_in? %>
+            <%= link_to 'View Gradebook', grades_path %>
+            <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+      <% else %>
+            <%= link_to 'Sign In', new_user_session_path %> -
+      <% end %>
+    </div>
+    <% if flash[:alert] %>
+      <div id="error_explanation">
+        <p><%= flash[:alert] %></p>
+      </div>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
